@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Work counter</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer type="module" src="./src/app.js"></script>
+    <link rel="stylesheet" href="./src/styles.css">
+  </head>
+  <body>
+    <h1 id="display" class="display">00:00:00</h1>
+    <div class="container">
+      <button id="toggle">Start to work</button>
+      <button id="stop" disabled >Stop to work</button>
+      <button id="save" disabled >Save</button>
+      <button id="load" >Load</button>
+      <input style="display: none;" type="file" name="file" id="file">
+    </div>
+      <div id="historydisplay" class="historydisplay">
+      </div>
+  </body>
+</html>
