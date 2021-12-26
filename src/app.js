@@ -39,7 +39,7 @@ stop.addEventListener("click", (e) => {
 import { saveAs } from "file-saver"
 
 save.addEventListener("click", (e) => {
-  const h = workCounter.history.getRegister()
+  let h = workCounter.history.getRegister()
 
   const blob = new Blob([JSON.stringify(h)], {
     type: "text/plain;charset=utf-8",
