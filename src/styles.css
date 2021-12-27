@@ -7,6 +7,15 @@
 
 button {
   padding: 1em;
+  border: 1px solid black;
+  border-radius: .5em;
+}
+
+input {
+  width: 100%;
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: .5em;
 }
 
 .display {
@@ -66,11 +75,16 @@ button {
 
 .modal-container {
   background-color: white;
-  height: 100px;
   width: 500px;
+  padding: 1em;
   border-radius: 1em;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.modal-container > * {
+  margin: .5em;
 }
