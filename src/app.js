@@ -1,5 +1,6 @@
 import WorkCounter from "./WorkCounter.js"
 import HistoryManager from "./HistoryManager.js"
+import { saveAs } from "file-saver"
 
 const workCounter = new WorkCounter()
 const historyManager = new HistoryManager()
@@ -8,6 +9,7 @@ const stop = document.querySelector("#stop")
 const save = document.querySelector("#save")
 const load = document.querySelector("#load")
 const file = document.querySelector("#file")
+const modal = document.querySelector('.modal')
 
 toggle.addEventListener("click", (e) => {
   switch (workCounter.getState()) {
@@ -29,6 +31,7 @@ toggle.addEventListener("click", (e) => {
 })
 
 stop.addEventListener("click", (e) => {
+  modal.classList.toggle('active')
   workCounter.stopToWork()
   e.target.disabled = true
   save.disabled = false
@@ -36,9 +39,7 @@ stop.addEventListener("click", (e) => {
   toggle.innerText = "Start to work"
 })
 
-import { saveAs } from "file-saver"
-
-save.addEventListener("click", (e) => {
+save.addEventListener("click", () => {
   let h = workCounter.history.getRegister()
 
   const blob = new Blob([JSON.stringify(h)], {
@@ -47,11 +48,11 @@ save.addEventListener("click", (e) => {
   saveAs(blob, "history.txt")
 })
 
-load.addEventListener("click", (e) => {
+load.addEventListener("click", () => {
   file.click()
 })
 
-file.onchange = function (event) {
+file.onchange = function () {
   var fr = new FileReader()
   fr.onload = function () {
     workCounter.history.setRegister(JSON.parse(fr.result))
