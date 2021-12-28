@@ -4,7 +4,7 @@
     <title>Work counter</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer type="module" src="./src/app.js"></script>
+    <script defer type="module" src="./src/index.js"></script>
     <link rel="stylesheet" href="./src/styles.css">
   </head>
   <body>
@@ -16,7 +16,15 @@
       <button id="load" >Load</button>
       <input style="display: none;" type="file" name="file" id="file">
     </div>
-      <div id="historydisplay" class="historydisplay">
-      </div>
+    <div id="historydisplay" class="historydisplay">
+    </div>
+
+    <div class="modal">
+      <form id="form" class="modal-container" action="#" method="post">
+        <p>title:</p>
+        <input type="text" name="des" id="txt_desc">
+        <button type="submit" name="button">save</button>
+      </form>
+    </div>
   </body>
 </html>

@@ -41,8 +41,8 @@ class WorkCounter {
     }
   }
 
-  stopToWork(){
-    this.history.saveRegister(this.timer.time)
+  stopToWork(str){
+    this.history.saveRegister(this.timer.time, str)
     this.timer.stop()
     this.state = 'finished'
   }
