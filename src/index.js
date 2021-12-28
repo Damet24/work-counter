@@ -33,10 +33,9 @@ function onToggleClick(e) {
 
 function onStopClick(e) {
   modal.classList.toggle('active')
-  workCounter.stopToWork()
+  modal.children[0].children[1].focus()
   e.target.disabled = true
   save.disabled = false
-  historyManager.updateHistory(workCounter.history.getRegister())
   toggle.innerText = "Start to work"
 }
 
@@ -65,7 +64,14 @@ function onChangeFile() {
 
 function onFormSubmit(e) {
   e.preventDefault()
-  console.log('prevenio papa')
+
+  const form = new FormData(this)
+  workCounter.stopToWork(form.get('des'))
+  console.log('prev', form.get('des'))
+
+  historyManager.updateHistory(workCounter.history.getRegister())
+  modal.classList.toggle('active')
+  modal.children[0].children[1].value = ''
 }
 
 toggle.addEventListener("click", onToggleClick)

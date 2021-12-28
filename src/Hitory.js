@@ -20,8 +20,9 @@ class History {
     this.current = new Item()
   }
 
-  saveRegister(time){
+  saveRegister(time, str){
     this.current.setTime(time)
+    this.current.setTitle(str)
     if(this.current !== null) this.History.push(this.current)
     this.current = null
     console.log(this.History)

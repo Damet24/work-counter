@@ -22,6 +22,7 @@ class HistoryManager {
   updateHistory(list) {
     const template = (info) => `<div class="item">
       <span>Time: ${this.coventTime(info.getTime())}</span>
+      <span>info: ${info.getTitle()}</span>
       <span>Date: ${info.getDate()}</span>
     </div>`
     let html = ""
